@@ -2,7 +2,7 @@ const grid = document.querySelector('.grid')
 const startButton = document.getElementById('start')
 const scoreDisplay = document.getElementById('score')
 let squares = []
-let currentSnake = [2,1,0]
+let currentSnake = [2, 1, 0]
 let direction = 1
 const width = 10
 let appleIndex = 0
@@ -12,16 +12,16 @@ let speed = 0.9
 let timerId = 0
 
 function createGrid() {
-    //create 100 of these elements with a for loop
-    for (let i=0; i < width*width; i++) {
-     //create element
-    const square = document.createElement('div')
-    //add styling to the element
-    square.classList.add('square')
-    //put the element into our grid
-    grid.appendChild(square)
-    //push it into a new squares array    
-    squares.push(square)
+
+    for (let i = 0; i < width * width; i++) {
+
+        const square = document.createElement('div')
+        //add styling to the element
+        square.classList.add('square')
+        //put the element into our grid
+        grid.appendChild(square)
+        //push it into a new squares array    
+        squares.push(square)
     }
 }
 createGrid()
@@ -34,7 +34,7 @@ function startGame() {
     //remove the apple
     squares[appleIndex].classList.remove('apple')
     clearInterval(timerId)
-    currentSnake = [2,1,0]
+    currentSnake = [2, 1, 0]
     score = 0
     //re add new score to browser
     scoreDisplay.textContent = score
@@ -48,13 +48,13 @@ function startGame() {
 
 function move() {
     if (
-        (currentSnake[0] + width >= width*width && direction === width) || //if snake has hit bottom
-        (currentSnake[0] % width === width-1 && direction === 1) || //if snake has hit right wall
+        (currentSnake[0] + width >= width * width && direction === width) || //if snake has hit bottom
+        (currentSnake[0] % width === width - 1 && direction === 1) || //if snake has hit right wall
         (currentSnake[0] % width === 0 && direction === -1) || //if snake has hit left wall
         (currentSnake[0] - width < 0 && direction === -width) || //if snake has hit top
         squares[currentSnake[0] + direction].classList.contains('snake')
     )
-    return clearInterval(timerId)
+        return clearInterval(timerId)
 
     //remove last element from our currentSnake array
     const tail = currentSnake.pop()
@@ -63,7 +63,7 @@ function move() {
     //add square in direction we are heading
     currentSnake.unshift(currentSnake[0] + direction)
     //add styling so we can see it
-    
+
     //deal with snake head gets apple
     if (squares[currentSnake[0]].classList.contains('apple')) {
         //remove the class of apple
@@ -87,9 +87,9 @@ function move() {
         console.log(intervalTime)
         timerId = setInterval(move, intervalTime)
     }
-    
-    
-    
+
+
+
     squares[currentSnake[0]].classList.add('snake')
 }
 
@@ -103,7 +103,7 @@ function generateApple() {
         appleIndex = Math.floor(Math.random() * squares.length)
     } while (squares[appleIndex].classList.contains('snake'))
     squares[appleIndex].classList.add('apple')
-} 
+}
 generateApple()
 
 // 39 is right arrow

@@ -1,4 +1,4 @@
-# title(){return this.options.title||this.options.name}
+# Snake Game
 
 Quick start:
 
@@ -9,4 +9,4 @@ $ yarn build # npm run build
 
 ## Summary:
 
-A simple snake game made using javascript
+A simple snake game made using javascript.
