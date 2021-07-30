@@ -1,6 +1,14 @@
-html, body {
+html,
+body {
     margin: 10;
     padding: 10;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    flex-flow: column wrap;
+    align-items: center;
 }
 
 .grid {

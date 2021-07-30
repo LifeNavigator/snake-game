@@ -29,9 +29,9 @@ createGrid()
 currentSnake.forEach(index => squares[index].classList.add('snake'))
 
 function startGame() {
-    //remove the snake
+
     currentSnake.forEach(index => squares[index].classList.remove('snake'))
-    //remove the apple
+
     squares[appleIndex].classList.remove('apple')
     clearInterval(timerId)
     currentSnake = [2, 1, 0]
